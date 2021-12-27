@@ -4,11 +4,12 @@
     * building robust, powerful web applications using Vue and Laravel.
 */
 import Vue from 'vue'
-import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
+import { BootstrapVue, BootstrapVueIcons, ToastPlugin } from 'bootstrap-vue'
 import App from './views/App.vue';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
 import router from './router'
+import store from "./store"
 
 /**
     * Next, we will create a fresh Vue application instance and attach it to
@@ -20,10 +21,12 @@ require('./bootstrap');
 Vue.use(VueAxios, axios);
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
+Vue.use(ToastPlugin)
 
 
 const app = new Vue({
     el: '#app',
     router,
+    store,
     render: h => h(App),
 });

@@ -1,5 +1,4 @@
 window._ = require('lodash');
-import '../css/_variables.scss';
 try {
     require('bootstrap');
 } catch (e) {}

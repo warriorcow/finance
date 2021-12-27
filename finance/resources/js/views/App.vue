@@ -1,19 +1,41 @@
 <template>
-    <b-container fluid>
+    <div>
         <Header></Header>
-
-        <router-view></router-view>
-    </b-container>
+        <main class="main">
+            <Sidebar></Sidebar>
+            <div class="main__content">
+                <router-view></router-view>
+            </div>
+        </main>
+        </b-row>
+    </div>
 </template>
 
 <script>
 import Header from "../components/Header"
+import Sidebar from "../components/Sidebar"
+import { mapGetters } from "vuex"
 export default {
     name: 'App',
 
     components: {
-        Header
-    }
+        Header, Sidebar
+    },
+
+    computed: {
+        ...mapGetters({
+            user: "USER",
+            auth: "AUTH",
+        })
+    },
+
+    // beforeRouteEnter(to, from, next) {
+    //     console.log('хуй')
+    //     if (!window.Laravel.isLoggedin) {
+    //         this.router.push("login");
+    //     }
+    //     next();
+    // }
 
     // data() {
     //     return {
@@ -57,21 +79,16 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.contacts {
-    &__form {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+<style lang="scss" scoped>
+.main {
+    display: flex;
 
-        label {
-            display: flex;
-            flex-direction: column;
-        }
+    &__content {
+        padding: 0.75rem;
+    }
 
-        * {
-            margin-bottom: 20px;
-        }
+    &__content {
+        flex: 1;
     }
 }
 </style>
