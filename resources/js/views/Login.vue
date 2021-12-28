@@ -1,65 +1,82 @@
 <template>
-    <div>
-        <b-form @submit.prevent="login" v-if="typePage === 'login'">
-            <h1>Login</h1>
-            <b-form-group
-                label="Email address:"
+    <b-row class="login">
+        <b-col cols="6" offset="3">
+            <b-form
+                v-if="typePage === 'login'"
+                class="login__form"
+                @submit.prevent="login"
             >
-                <b-form-input
-                    v-model="formLogin.email"
-                    type="text"
-                    placeholder="Enter email"
-                    required
-                ></b-form-input>
-            </b-form-group>
-            <b-form-group
-                label="Password:"
-            >
-                <b-form-input
-                    v-model="formLogin.password"
-                    placeholder="Enter password"
-                    required
-                ></b-form-input>
-            </b-form-group>
-            <b-button type="submit">Login</b-button>
-            <b-button @click="toggleLogin">{{ loginButtonName }}</b-button>
-        </b-form>
+                <h1>Login</h1>
+                <b-form-group
+                    label="Email address:"
+                >
+                    <b-form-input
+                        v-model="formLogin.email"
+                        type="text"
+                        placeholder="Enter email"
+                        required
+                    ></b-form-input>
+                </b-form-group>
+                <b-form-group
+                    label="Password:"
+                >
+                    <b-form-input
+                        v-model="formLogin.password"
+                        type="password"
+                        placeholder="Enter password"
+                        required
+                    ></b-form-input>
+                </b-form-group>
+                <div class="mt-4 text-end">
+                    <b-button type="submit">Login</b-button>
+                    <b-button class="ms-2" @click="toggleLogin">{{ loginButtonName }}</b-button>
+                </div>
+            </b-form>
 
-        <b-form @submit.prevent="register" v-else>
-            <h1>Register</h1>
-            <b-form-group
-                label="Name:"
+            <b-form
+                v-else
+                class="login__form"
+                @submit.prevent="register"
             >
-                <b-form-input
-                    v-model="formRegister.name"
-                    type="text"
-                    placeholder="Enter email"
-                    required
-                ></b-form-input>
-            </b-form-group>
-            <b-form-group
-                label="Email address:"
-            >
-                <b-form-input
-                    v-model="formRegister.email"
-                    type="text"
-                    placeholder="Enter email"
-                    required
-                ></b-form-input>
-            </b-form-group>
-            <b-form-group
-                label="Password:"
-            >
-                <b-form-input
-                    v-model="formRegister.password"
-                    placeholder="Enter password"
-                    required
-                ></b-form-input>
-            </b-form-group>
-            <b-button type="submit">Register</b-button>
-            <b-button @click="toggleLogin">{{ loginButtonName }}</b-button>
-        </b-form>
-    </div>
+                <h1>Register</h1>
+                <b-form-group
+                    label="Name:"
+                >
+                    <b-form-input
+                        v-model="formRegister.name"
+                        type="text"
+                        placeholder="Enter email"
+                        required
+                    ></b-form-input>
+                </b-form-group>
+                <b-form-group
+                    label="Email address:"
+                >
+                    <b-form-input
+                        v-model="formRegister.email"
+                        type="text"
+                        placeholder="Enter email"
+                        required
+                    ></b-form-input>
+                </b-form-group>
+                <b-form-group
+                    label="Password:"
+                >
+                    <b-form-input
+                        v-model="formRegister.password"
+                        type="password"
+                        placeholder="Enter password"
+                        required
+                    ></b-form-input>
+                </b-form-group>
+                <div class="mt-4 text-end">
+                    <b-button type="submit">Register</b-button>
+                    <b-button class="ms-2" @click="toggleLogin">{{ loginButtonName }}</b-button>
+                </div>
+            </b-form>
+        </b-col>
+    </b-row>
+
 
 </template>
 
@@ -137,3 +154,15 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.login {
+    margin-top: 15%;
+
+    &__form {
+        box-shadow: 0 0 20px 0px var(--shadow);
+        padding: 20px;
+        border-radius: 10px;
+    }
+}
+</style>

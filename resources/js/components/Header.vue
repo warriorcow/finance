@@ -8,7 +8,9 @@
             <b-col cols="10" class="header__menu">
                 <b-link class="header__link" to="/">Home</b-link>
                 <b-link class="header__link" to="/dashboard">Dashboard</b-link>
-                <b-link class="header__link" @click="logout">Logout</b-link>
+                <b-button class="header__link" @click="logout">
+                    <b-icon icon="door-open-fill"></b-icon>
+                </b-button>
             </b-col>
         </b-row>
     </b-container>

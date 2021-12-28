@@ -1,8 +1,8 @@
 <template>
     <div>
-        <Header></Header>
+        <Header v-if="auth"></Header>
         <main class="main">
-            <Sidebar></Sidebar>
+            <Sidebar v-if="auth"></Sidebar>
             <div class="main__content">
                 <router-view></router-view>
             </div>
